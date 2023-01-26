@@ -32,7 +32,7 @@ def write_bq(df: pd.DataFrame) -> None:
 
     df.to_gbq(
         destination_table="dezoomcamp.rides",
-        project_id="prefect-sbx-community-eng",
+        project_id="datazoomcamp-375017",
         credentials=gcp_credentials_block.get_credentials_from_service_account(),
         chunksize=500_000,
         if_exists="append",
@@ -41,7 +41,7 @@ def write_bq(df: pd.DataFrame) -> None:
 
 @flow()
 def etl_gcs_to_bq():
-    """Main ETL flow to load data into Big Query"""
+    """Main ETL flow to load data from GCP bucket storage into Big Query"""
     color = "yellow"
     year = 2021
     month = 1
