@@ -40,6 +40,9 @@ prefect orion start
 
 `prefect block register -m prefect_gcp`
 
+`prefect block register -m prefect_sqlalchemy` to add sqlalchemy block capability
+
+
 ## Create Prefect GCP blocks
 
 Create a *GCP Credentials* block in the UI.
