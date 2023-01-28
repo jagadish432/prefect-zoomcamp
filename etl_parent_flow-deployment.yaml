@@ -1,0 +1,65 @@
+###
+### A complete description of a Prefect Deployment for flow 'etl-parent-flow'
+###
+name: Deploy Parameterized ETL job
+description: Run the paremetrized ETL job with months-1,2 and color-yellow and year-2021
+  parameters
+version: 2a3c7a68a601590d10c576301cbdd4f2
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags: []
+parameters:
+  color: yellow
+  months:
+  - 1
+  - 2
+  - 3
+schedule: null
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-parent-flow
+manifest_path: null
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  _block_document_id: e99e2a18-a399-465a-98d4-4ef695700aa0
+  _block_document_name: anonymous-223a9469-1c02-4ad8-b0dd-05ba8533bc6b
+  _is_anonymous: true
+  block_type_slug: process
+  _block_type_slug: process
+storage: null
+path: /home/jagadish/prefect-zoomcamp
+entrypoint: flows/03_deployments/parameterized_flow.py:etl_parent_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      default:
+      - 1
+      - 2
+      position: 0
+      type: array
+      items:
+        type: integer
+    year:
+      title: year
+      default: 2021
+      position: 1
+      type: integer
+    color:
+      title: color
+      default: yellow
+      position: 2
+      type: string
+  required: null
+  definitions: null
