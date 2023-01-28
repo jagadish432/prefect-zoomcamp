@@ -21,7 +21,7 @@ def fetch(dataset_url: str) -> pd.DataFrame:
 def clean(df=pd.DataFrame) -> pd.DataFrame:
     """Fix dtype issues"""
     df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
-    df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
+    df["tpep_drop_datetime"] = pd.to_datetime(df["tpep_drop_datetime"])
     print(df.head(2))
     print(f"columns: {df.dtypes}")
     print(f"rows: {len(df)}")
@@ -47,7 +47,7 @@ def write_gcs(path: Path) -> None:
 @flow()
 def etl_web_to_gcs(year: int, month: int, color: str) -> None:
     """The main ETL function"""
-    dataset_file = f"{color}_tripdata_{year}-{month:02}"
+    dataset_file = f"{color}_tripdata_{year}-{month:02}"    # month:02 here means , keep month value in 2 digits i.e., 11 will be 11 but 3 will be 03
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"
 
     df = fetch(dataset_url)

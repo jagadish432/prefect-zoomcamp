@@ -48,7 +48,7 @@ def etl_web_to_gcs() -> None:
     color = "yellow"
     year = 2021
     month = 1
-    dataset_file = f"{color}_tripdata_{year}-{month:02}"
+    dataset_file = f"{color}_tripdata_{year}-{month:02}" # month:02 here means , keep month value in 2 digits i.e., 11 will be 11 but 3 will be 03
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"
 
     df = fetch(dataset_url)
