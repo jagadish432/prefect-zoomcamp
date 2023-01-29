@@ -4,7 +4,7 @@
 name: Deploy Parameterized ETL job
 description: Run the paremetrized ETL job with months-1,2 and color-yellow and year-2021
   parameters
-version: 2a3c7a68a601590d10c576301cbdd4f2
+version: e15af8cb72eeef8699bc444343ce08c2
 # The work queue that will handle this deployment's runs
 work_queue_name: default
 tags: []
